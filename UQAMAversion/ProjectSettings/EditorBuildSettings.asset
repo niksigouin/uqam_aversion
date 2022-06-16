@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main Scenes/sequence1.unity
+    guid: 9777366d83e466942b63fb0c0ef04bcf
+  - enabled: 1
+    path: Assets/Scenes/Main Scenes/RelaxationScene.unity
+    guid: 17652d63c03ea6448a3d17625e658c1b
+  - enabled: 1
+    path: Assets/Scenes/Main Scenes/sequence3.unity
+    guid: e7b3f72934c130f43a5a6a3d55d10b6b
+  - enabled: 1
+    path: Assets/Scenes/Main Scenes/sequence4.unity
+    guid: 973029b1e1a631940b8749d9cf782ae9
+  - enabled: 0
+    path: Assets/Samples/Tobii XR SDK/3.0.1/Getting Started/Example_GettingStarted.unity
+    guid: 221a337531f80eb4eb510b1cd2874c53
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c555ca433dae6ac438cbfad4a09144bc,
+      type: 2}
+    Unity.XR.PXR.Settings: {fileID: 11400000, guid: 1bdc0aa9e56fe654da13edfbf7744397,
+      type: 2}
+    Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: aaa4fb7c75302a14ba66110e0269e60c,
+      type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: eadb46141353ca647a23947be10a34eb,
+      type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 3dafe01bb2343cf4492e9d6b52596099,
+      type: 2}

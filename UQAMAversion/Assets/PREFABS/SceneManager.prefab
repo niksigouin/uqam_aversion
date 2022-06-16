@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8496596951305361525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8496596951305361526}
+  - component: {fileID: 8496596951305361527}
+  - component: {fileID: 2641987959489049833}
+  - component: {fileID: 7610748293880981896}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8496596951305361526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496596951305361525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.688528, y: 0.9096066, z: 1.6942289}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8496596951305361527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496596951305361525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dcbced5828ce0e499f65edf48fb4525, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneList:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  preSceneList:
+  - {fileID: 11400000, guid: 664bdabf9ab2a1742886b420014f3eeb, type: 2}
+  - {fileID: 11400000, guid: eae6bd42230c26647b24e9405071d63f, type: 2}
+  - {fileID: 11400000, guid: 725491195dd057046ac1170a4a0961ca, type: 2}
+  - {fileID: 11400000, guid: bef51f53f7e04ab45801620c6a077493, type: 2}
+  - {fileID: 11400000, guid: 16859685c78eed0408dc40b856f466d4, type: 2}
+  sceneLoader: {fileID: 2641987959489049833}
+  vrInputController: {fileID: 7610748293880981896}
+  xrRig: {fileID: 0}
+  playerController: {fileID: 0}
+  screenFader: {fileID: 0}
+  sceneIsFinished: 0
+--- !u!114 &2641987959489049833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496596951305361525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6475f5812b7c740b6b82e4b0f347cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadSceneMode: 0
+  UseSceenFader: 1
+  ScreenFadeTime: 6
+  sf: {fileID: 0}
+--- !u!114 &7610748293880981896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8496596951305361525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4d2056d04991947b00570c40a4fe2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hands:
+  - {fileID: 0}
+  - {fileID: 0}
+  playerController: {fileID: 0}
+  initialPlayerControl: 1

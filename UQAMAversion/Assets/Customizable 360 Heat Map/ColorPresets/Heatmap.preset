@@ -1,0 +1,430 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Heatmap
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: e9b4417d133e5437f8eb32a9c5a78774,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_Name
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: defaultTexture
+    value: 
+    objectReference: {fileID: 2800000, guid: 57126c5c1e27a403fba52edac8ad7cbe, type: 3}
+  - target: {fileID: 0}
+    propertyPath: sourceTexture
+    value: 
+    objectReference: {fileID: 2800000, guid: f159da74f0a30b4459702164daf217be, type: 3}
+  - target: {fileID: 0}
+    propertyPath: heapmapTransparency
+    value: 0.8
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.size
+    value: 24
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[0].r
+    value: 0.08627451
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[0].g
+    value: 0.22352943
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[0].b
+    value: 0.9803922
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[0].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[1].r
+    value: 0.1254902
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[1].g
+    value: 0.3137255
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[1].b
+    value: 0.9803922
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[1].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[2].r
+    value: 0.19607845
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[2].g
+    value: 0.45882356
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[2].b
+    value: 0.9843138
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[2].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[3].r
+    value: 0.27058825
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[3].g
+    value: 0.6039216
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[3].b
+    value: 0.9803922
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[3].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[4].r
+    value: 0.33333334
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[4].g
+    value: 0.74509805
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[4].b
+    value: 0.9843138
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[4].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[5].r
+    value: 0.4039216
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[5].g
+    value: 0.882353
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[5].b
+    value: 0.98823535
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[5].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[6].r
+    value: 0.44705886
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[6].g
+    value: 0.9803922
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[6].b
+    value: 0.9607844
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[6].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[7].r
+    value: 0.44705886
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[7].g
+    value: 0.9725491
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[7].b
+    value: 0.8235295
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[7].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[8].r
+    value: 0.44705886
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[8].g
+    value: 0.9686275
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[8].b
+    value: 0.6784314
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[8].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[9].r
+    value: 0.4431373
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[9].g
+    value: 0.9686275
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[9].b
+    value: 0.5294118
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[9].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[10].r
+    value: 0.43921572
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[10].g
+    value: 0.9607844
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[10].b
+    value: 0.37254903
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[10].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[11].r
+    value: 0.43921572
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[11].g
+    value: 0.9607844
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[11].b
+    value: 0.21960786
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[11].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[12].r
+    value: 0.454902
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[12].g
+    value: 0.9607844
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[12].b
+    value: 0.18431373
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[12].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[13].r
+    value: 0.5254902
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[13].g
+    value: 0.96470594
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[13].b
+    value: 0.18823531
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[13].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[14].r
+    value: 0.62352943
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[14].g
+    value: 0.96470594
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[14].b
+    value: 0.20000002
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[14].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[15].r
+    value: 0.73333335
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[15].g
+    value: 0.9725491
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[15].b
+    value: 0.20784315
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[15].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[16].r
+    value: 0.85098046
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[16].g
+    value: 0.97647065
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[16].b
+    value: 0.21960786
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[16].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[17].r
+    value: 0.96470594
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[17].g
+    value: 0.9803922
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[17].b
+    value: 0.23137257
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[17].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[18].r
+    value: 0.9803922
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[18].g
+    value: 0.8862746
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[18].b
+    value: 0.21960786
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[18].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[19].r
+    value: 0.9607844
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[19].g
+    value: 0.74509805
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[19].b
+    value: 0.19215688
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[19].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[20].r
+    value: 0.9450981
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[20].g
+    value: 0.60784316
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[20].b
+    value: 0.17254902
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[20].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[21].r
+    value: 0.9333334
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[21].g
+    value: 0.46274513
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[21].b
+    value: 0.15294118
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[21].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[22].r
+    value: 0.92549026
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[22].g
+    value: 0.32156864
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[22].b
+    value: 0.13725491
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[22].a
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[23].r
+    value: 0.9215687
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[23].g
+    value: 0.23137257
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[23].b
+    value: 0.13333334
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: colorProgress.Array.data[23].a
+    value: 0
+    objectReference: {fileID: 0}
