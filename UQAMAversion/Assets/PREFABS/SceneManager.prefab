@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dcbced5828ce0e499f65edf48fb4525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ikTarget: {fileID: 0}
   sceneList:
   - {fileID: 0}
   - {fileID: 0}
@@ -63,6 +64,8 @@ MonoBehaviour:
   playerController: {fileID: 0}
   screenFader: {fileID: 0}
   sceneIsFinished: 0
+  RandomSceneList: []
+  GoToIndicator: {fileID: 0}
 --- !u!114 &2641987959489049833
 MonoBehaviour:
   m_ObjectHideFlags: 0

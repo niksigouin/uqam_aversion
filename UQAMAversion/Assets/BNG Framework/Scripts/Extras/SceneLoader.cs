@@ -35,6 +35,16 @@ namespace BNG
                 // Debug.LogError("UseScreenFader no enabled");
             }
         }
+        
+        public void FadeOutAndWaitForSceneIndex(string SceneName)
+        {
+            if (UseSceenFader)
+            {
+                _loadSceneName = SceneName;
+                // Debug.Log("Starting fade coroutine");
+                StartCoroutine(FadeAndWait());
+            }
+        }
 
         public IEnumerator FadeThenLoadScene()
         {
@@ -50,10 +60,31 @@ namespace BNG
             {
                 // Debug.Log("UseScreenFader is not true!");
             }
-
+                
             if (ScreenFadeTime > 0) yield return new WaitForSeconds(ScreenFadeTime);
 
+
             SceneManager.LoadScene(_loadSceneName, loadSceneMode);
+        }
+
+        public IEnumerator FadeAndWait()
+        {
+            if (UseSceenFader)
+            {
+                if (sf == null) sf = FindObjectOfType<ScreenFader>();
+                // Debug.Log($"{this}: Inside FadeThenLoadScene");
+                if (sf != null)
+                    sf.DoFadeIn();
+            }
+            else
+            {
+                // Debug.Log("UseScreenFader is not true!");
+            }
+                
+            if (ScreenFadeTime > 0) yield return new WaitForSeconds(ScreenFadeTime);
+            yield return new WaitUntil(() => SceneChangeController.Instance.SceneSelectionComplete);
+            SceneManager.LoadScene(_loadSceneName, loadSceneMode);
+            SceneChangeController.Instance.SceneSelectionComplete = false;
         }
     }
 }

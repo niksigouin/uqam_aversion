@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using BNG;
 using Script.Utils;
+using Tobii.XR.GazeModifier;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -23,6 +25,7 @@ public class SceneChangeController : MonoBehaviour
     [Header("Scenes")]
     [SerializeField] List<SceneSO> sceneList = new List<SceneSO>(5);
     [SerializeField] List<SceneSO> preSceneList = new List<SceneSO>(5);
+    [SerializeField] private SceneSO bufferScene;
 
     [Header("Script References")] 
     [SerializeField] private SceneLoader sceneLoader;
@@ -41,13 +44,14 @@ public class SceneChangeController : MonoBehaviour
 
     [Header("Persistent Information")] 
     private Genre _prefGenre = Genre.None;
-    
-    
+
 
     public bool SceneIsFinished
     {
         get { return sceneIsFinished; }
     }
+    
+    public bool SceneSelectionComplete { get; set; } = false;
 
     public Genre PrefGenre => _prefGenre;
 
@@ -68,13 +72,27 @@ public class SceneChangeController : MonoBehaviour
 
     private void Start()
     {
-        vrInputController.ToggleHands(sceneList[currentSceneIndex].SceneUsesVisibleHands);
+        // vrInputController.ToggleHands(sceneList[currentSceneIndex].SceneUsesVisibleHands);
         // ApplyBleuScreenTimer(sceneList[currentSceneIndex]);
     }
 
     private void OnDestroy()
     {
         Unsubscribe();
+    }
+
+    private void Update()
+    {
+        if(SceneSelectionComplete) return;
+        if (InputBridge.Instance.AButtonDown)
+        {
+            LoadNextScene();
+            SceneSelectionComplete = true;
+        } else if (InputBridge.Instance.XButtonDown)
+        {
+            LoadPreviousScene();
+            SceneSelectionComplete = true;
+        }
     }
 
     public void ToggleGoToIndicator(bool state)
@@ -95,27 +113,60 @@ public class SceneChangeController : MonoBehaviour
 
     private void BuildSceneList()
     {
-        Shuffle(RandomSceneList);
-        //TODO: MAKE THIS LESS DUMB.... AND MORE USABLE... im not proud
-        for (int i = 0; i < preSceneList.Count; i++)
-        {
-            if (i == 0 || i == 1)
-            {
-                sceneList.Add(preSceneList[i]);
-            }
-            else if (i == 2)
-            {
-                sceneList.AddRange(RandomSceneList);
-            } else if (i == 3)
-            {
-                Debug.Log("skippyinh scene place");
-            }
-            else if (i == 4)
-            {
-                sceneList.Add(preSceneList[4]);
-            }
-            // Debug.Log(i);
-        }
+        sceneList = preSceneList;
+        
+        // List<SceneSO> tempSceneList = new List<SceneSO>();
+        // debugSceneList = preSceneList;
+        // Debug.Log("[SCENE SHUFFLE] Copied pre-scene list to debug list");
+        //
+        // //for each index in shuffledSceneIndexes, add the corresponding indexes from preScenelist to the tempSceneList
+        // foreach (var index in shuffledSceneIndexes)
+        // {
+        //     tempSceneList.Add(preSceneList[index]);
+        // }
+        //
+        // //Shuffle the tempSceneList 
+        // Shuffle(tempSceneList);
+        //
+        // //For each index in shuffledSceneIndexes, replace the corresponding indexes from tempSceneList in the preSceneList
+        // for (int i = 0; i < shuffledSceneIndexes.Count; i++)
+        // {
+        //     preSceneList[shuffledSceneIndexes[i]] = tempSceneList[i];
+        //     Debug.Log($"[SCENE SHUFFLE] Now replacing index {preSceneList[shuffledSceneIndexes[i]].SceneName} with {tempSceneList[i].SceneName}");
+        // }
+        //
+        // //Add the preSceneList to the sceneList
+        //
+        // foreach (int index in shuffledSceneIndexes)
+        // {
+        //     tempSceneList.Add(sceneList[index]);
+        // }
+        //
+        // Shuffle(RandomSceneList);
+        // //TODO: MAKE THIS LESS DUMB.... AND MORE USABLE... im not proud
+        // //TODO: ADD AN OTHER EXPOSED FIELD THAT HOLDS THE INDEXES OF THE DESIRED SCENES TO SHUFFLE (IE: {2, 4})
+        // //TODO: IF THE CURRENT TARGET INDEX IN PRESCENELIST IS NOT PRESENT IN REFERENCE LIST
+        // for (int i = 0; i < preSceneList.Count; i++)
+        // {
+        //     if (i == 0 || i == 1)
+        //     {
+        //         sceneList.Add(preSceneList[i]);
+        //     }
+        //     else if (i == 2)
+        //     {
+        //         sceneList.AddRange(RandomSceneList);
+        //     } else if (i == 3)
+        //     {
+        //         Debug.Log("skippyinh scene place");
+        //     }
+        //     else if (i == 4)
+        //     {
+        // sceneList.Add(preSceneList[4]);
+        //     }
+        //     // Debug.Log(i);
+        // }
+
+
     }
 
     //On change scenes, disable inputs and stuff
@@ -149,7 +200,8 @@ public class SceneChangeController : MonoBehaviour
     private void OnEndOfScene()
     {
         ApplyBleuScreenTimer(sceneList[currentSceneIndex]);
-        LoadNextScene();
+        // LoadNextScene();
+        screenFader.DoFadeIn();
     }
 
     private void OnFadeInComplete()
@@ -179,6 +231,12 @@ public class SceneChangeController : MonoBehaviour
         vrInputController.TogglePlayerMouvement(sceneList[currentSceneIndex].SceneUsesLocomotion);
     }
     
+    [ContextMenu("Unload Current Scene")]
+    private void UnloadCurrentScene()
+    {
+        SceneManager.UnloadSceneAsync(currentSceneIndex);
+    }
+
     [ContextMenu("Load Next Scene")]
     private void LoadNextScene()
     {
@@ -187,14 +245,29 @@ public class SceneChangeController : MonoBehaviour
         // ApplyBleuScreenTimer(sceneList[currentSceneIndex]);
         currentSceneIndex++;
         Debug.Log(
-            $"{this}: Called Load Next Scene! | Loading [{sceneList[currentSceneIndex].SceneName}]");
+            $"{this}: Called Load Next Scene! | Loading [{sceneList[currentSceneIndex].SceneName}] at index [{currentSceneIndex}]");
         if (currentSceneIndex <= sceneList.Count - 1)
         {
-            sceneLoader.LoadScene(sceneList[currentSceneIndex].SceneName);
+            // sceneLoader.LoadScene(sceneList[currentSceneIndex].SceneName);
+            sceneLoader.FadeOutAndWaitForSceneIndex(sceneList[currentSceneIndex].SceneName);
         }
         // currentSceneIndex++;
         sceneIsFinished = false;
     }
+
+    [ContextMenu("Load Previous Scene")]
+    private void LoadPreviousScene()
+    {
+        // currentSceneIndex--;
+        if (currentSceneIndex >= 0)
+        {
+            sceneLoader.FadeOutAndWaitForSceneIndex(sceneList[currentSceneIndex].SceneName);
+        }
+        sceneIsFinished = false;
+        // sceneLoader.LoadScene(sceneList[currentSceneIndex].SceneName);
+    }
+    
+    
 
     public void SetPlayerTransform(Transform targetTransform)
     {
