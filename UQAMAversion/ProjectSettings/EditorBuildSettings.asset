@@ -12,13 +12,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Scenes/RelaxationScene.unity
     guid: 17652d63c03ea6448a3d17625e658c1b
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/SalonM2.unity
+    path: Assets/Scenes/Main Scenes/SalonM2d.unity
     guid: b412b33af765f48418315e629bfb9b68
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/SalonM1.unity
+    path: Assets/Scenes/Main Scenes/SalonW2.unity
     guid: 5d58f9aaa7a9e4944ba3ef9037958758
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/SalonM5.unity
+    path: Assets/Scenes/Main Scenes/SalonM5d.unity
     guid: d9767d470ec89014bb18d5476b1aef8a
   - enabled: 0
     path: Assets/Scenes/Empty.unity
@@ -54,34 +54,34 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Scenes/LoungeW4.unity
     guid: f234ae46f8beacb47b559df290b239d6
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/RoomM1.unity
+    path: Assets/Scenes/Main Scenes/RoomMW1.unity
     guid: e6720b686a3efcb45b6e34aabc0c6418
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/RoomM4.unity
+    path: Assets/Scenes/Main Scenes/RoomMM4.unity
     guid: 2c15297e23f78494b965676deea40918
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/RoomM5.unity
+    path: Assets/Scenes/Main Scenes/RoomMM5.unity
     guid: 13465f9525a7bbe4dadd21b5ff462c2c
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/RoomW1.unity
+    path: Assets/Scenes/Main Scenes/RoomWM1.unity
     guid: 18646d0704f895f4aaa43087cf4ca7fa
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/RoomW2.unity
+    path: Assets/Scenes/Main Scenes/RoomWM2.unity
     guid: 8c29a10ff359a5249a3c4831ed522453
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/RoomM3.unity
+    path: Assets/Scenes/Main Scenes/RoomMM3.unity
     guid: 5f5056ec8c8aabe4b9eccdecb643fbc0
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/RoomW4.unity
+    path: Assets/Scenes/Main Scenes/RoomWM4.unity
     guid: 83d6992233e45df458d09d68e3fe9602
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/RoomW5.unity
+    path: Assets/Scenes/Main Scenes/RoomWM5.unity
     guid: 6eefc016d5a71e541865c1949b6b58cd
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/SalonM3.unity
+    path: Assets/Scenes/Main Scenes/SalonM3d.unity
     guid: a21e5ba341232c942879009fd2d7d3a5
   - enabled: 0
-    path: Assets/Scenes/Main Scenes/SalonM4.unity
+    path: Assets/Scenes/Main Scenes/SalonM4d.unity
     guid: 46def9eb9b0df23488ef0da8134c2f5c
   - enabled: 0
     path: Assets/Scenes/Main Scenes/SalonW1.unity
@@ -104,8 +104,7 @@ EditorBuildSettings:
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c555ca433dae6ac438cbfad4a09144bc,
       type: 2}
-    Unity.XR.PXR.Settings: {fileID: 11400000, guid: 1bdc0aa9e56fe654da13edfbf7744397,
-      type: 2}
+    Unity.XR.PXR.Settings: {fileID: 0}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: aaa4fb7c75302a14ba66110e0269e60c,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: eadb46141353ca647a23947be10a34eb,
