@@ -26,19 +26,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Scenes/SalonM5.unity
     guid: eec305d43776f0142917ed6e9c78aed1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/SalonW1.unity
     guid: 2fe042c1cda2be246903a80b80dde55a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/SalonW2.unity
     guid: 5d58f9aaa7a9e4944ba3ef9037958758
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/SalonW3.unity
     guid: 44da8cdcfee4c8b47ba573005455f29c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/SalonW4.unity
     guid: 236cce7ef8a8e694faa55812df8f4fcd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/SalonW5.unity
     guid: 62d3046c9118ebf45b59024b46fd5d12
   - enabled: 1
@@ -71,19 +71,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Scenes/LoungeW5.unity
     guid: 158713f10ba9ef64a80c462ca9ee9e14
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomMM1.unity
     guid: 0d08ec661cebc1b4a8d1ddc0b9b360fa
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomMM2.unity
     guid: bb996e5f98d489945a1b4f4cb110ce71
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomMM3.unity
     guid: 5543315f29d98de488e0e9e4b4afb153
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomMM4.unity
     guid: 50dec2c0c8318e54fb39719c42c8324b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomMM5.unity
     guid: 3157b6deba96d6744825d73bb97b8050
   - enabled: 1
@@ -101,40 +101,41 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Scenes/RoomMW5.unity
     guid: 94ac40a6b344c7a4b95440f1fff2bb17
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomWM1.unity
     guid: 0deaf8f87629ee6449748aaa65f6dde1
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomWM2.unity
     guid: 0364edde769ab384e854bc8eca385073
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomWM3.unity
     guid: 2f62d200e0c8f774fbf8deb2bd7e0a42
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomWM4.unity
     guid: f2c4db71a5ec33543972e399d4275a44
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomWM5.unity
     guid: d925344c5995c1842a49ad64d63eb954
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomWW1.unity
     guid: 596814a83d983ee49b11add38d0ffa9c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomWW2.unity
     guid: a2c5158d41fd4f0439b19796394419f6
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomWW3.unity
     guid: 6dd99ccc1161e034ea388a4a1a6d508b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomWW4.unity
     guid: 81bc2d38226b3aa429e13843d3fa62f7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Main Scenes/RoomWW5.unity
     guid: 9f59a377339eb7041bacf066febe610c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: c555ca433dae6ac438cbfad4a09144bc,
       type: 2}
-    Unity.XR.PXR.Settings: {fileID: 0}
+    Unity.XR.PXR.Settings: {fileID: 11400000, guid: 1bdc0aa9e56fe654da13edfbf7744397,
+      type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: aaa4fb7c75302a14ba66110e0269e60c,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: eadb46141353ca647a23947be10a34eb,

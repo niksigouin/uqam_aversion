@@ -282,7 +282,21 @@ MonoBehaviour:
   customFps: 0
   screenFade: 0
   eyeTracking: 1
+  trackingMode: 0
+  faceTracking: 0
+  lipsyncTracking: 0
   foveationLevel: -1
+  openMRC: 0
+  foregroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  backLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  backCameraObj: {fileID: 0}
+  foregroundCameraObj: {fileID: 0}
+  mrcRenderTexture: {fileID: 0}
+  foregroundMrcRenderTexture: {fileID: 0}
   appCheckResult: 100
   useRecommendedAntiAliasingLevel: 1
 --- !u!64 &45540464
@@ -1146,6 +1160,11 @@ PrefabInstance:
       propertyPath: screenFader
       value: 
       objectReference: {fileID: 219573349}
+    - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
+        type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 861409776}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: GoToIndicator
@@ -23331,6 +23350,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 861409771}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &861409776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2683195716758895188, guid: 4ac7df741a9c0a2418ec19477729ee3d,
+    type: 3}
+  m_PrefabInstance: {fileID: 861409771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &870052898
 GameObject:
   m_ObjectHideFlags: 0
@@ -27644,7 +27669,7 @@ SphereCollider:
   m_GameObject: {fileID: 1935466308}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
