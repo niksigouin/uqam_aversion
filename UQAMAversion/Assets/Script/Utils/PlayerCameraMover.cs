@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,13 @@ public class PlayerCameraMover : MonoBehaviour
     [SerializeField] private float _waitTime;
 
     private Vector3 _initialPosition;
-    
+
+    private IEnumerator Start()
+    {
+        yield return new WaitUntil(() => SceneChangeController.Instance != null);
+        _player = SceneChangeController.Instance.PlayerCamera;
+    }
+
     //Move the camera to the target
     public void MoveCameraToTarget()
     {

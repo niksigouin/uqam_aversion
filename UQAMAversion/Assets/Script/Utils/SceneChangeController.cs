@@ -35,6 +35,7 @@ public class SceneChangeController : MonoBehaviour
     [SerializeField] private GameObject xrRig;
     [SerializeField] private GameObject playerController;
     [SerializeField] private ScreenFader screenFader;
+    [SerializeField] private GameObject playerCamera;
 
     [Header("Scene information")] 
     [SerializeField] private bool sceneIsFinished = false;
@@ -45,6 +46,7 @@ public class SceneChangeController : MonoBehaviour
     [Header("Persistent Information")] 
     private Genre _prefGenre = Genre.None;
 
+    public GameObject PlayerCamera => playerCamera;
 
     public bool SceneIsFinished
     {
@@ -84,11 +86,11 @@ public class SceneChangeController : MonoBehaviour
     private void Update()
     {
         if(SceneSelectionComplete) return;
-        if (InputBridge.Instance.AButtonDown)
+        if (InputBridge.Instance.AButtonDown || Input.GetKey(KeyCode.RightArrow))
         {
             LoadNextScene();
             SceneSelectionComplete = true;
-        } else if (InputBridge.Instance.XButtonDown)
+        } else if (InputBridge.Instance.XButtonDown || Input.GetKey(KeyCode.LeftArrow))
         {
             LoadPreviousScene();
             SceneSelectionComplete = true;

@@ -13,10 +13,10 @@ namespace Script.Utils
 
         private void Update()
         {
-            if (InputBridge.Instance.YButtonDown)
+            if (InputBridge.Instance.YButtonDown || Input.GetKey("up"))
             {
                 SetPrefGenre(true);
-            } else if (InputBridge.Instance.BButtonDown)
+            } else if (InputBridge.Instance.XButtonDown || Input.GetKey("down"))
             {
                 SetPrefGenre(false);
             }
