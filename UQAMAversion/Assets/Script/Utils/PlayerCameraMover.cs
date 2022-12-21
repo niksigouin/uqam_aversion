@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerCameraMover : MonoBehaviour
 {
+    [SerializeField] private bool _enableCameraMovement = true;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _target;
     [SerializeField] private float _inSpeed;
@@ -22,6 +23,7 @@ public class PlayerCameraMover : MonoBehaviour
     //Move the camera to the target
     public void MoveCameraToTarget()
     {
+        if (!_enableCameraMovement) return;
         _initialPosition = _player.transform.position;
         LeanTween.move(_player, _target.transform.position, _inSpeed);
         StartCoroutine(ResetCameraToOrigin());
