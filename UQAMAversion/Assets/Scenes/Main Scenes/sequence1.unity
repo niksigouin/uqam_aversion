@@ -282,7 +282,21 @@ MonoBehaviour:
   customFps: 0
   screenFade: 0
   eyeTracking: 1
+  trackingMode: 0
+  faceTracking: 0
+  lipsyncTracking: 0
   foveationLevel: -1
+  openMRC: 1
+  foregroundLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  backLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  backCameraObj: {fileID: 0}
+  foregroundCameraObj: {fileID: 0}
+  mrcRenderTexture: {fileID: 0}
+  foregroundMrcRenderTexture: {fileID: 0}
   appCheckResult: 100
   useRecommendedAntiAliasingLevel: 1
 --- !u!64 &45540464
@@ -1174,7 +1188,7 @@ PrefabInstance:
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.size
-      value: 6
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
@@ -1221,121 +1235,121 @@ PrefabInstance:
         type: 3}
       propertyPath: preSceneList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: f450ed9d869373e41ab0b7ca40feec5d,
+      objectReference: {fileID: 11400000, guid: 5bf825fa424fbf342996a584d92f0285,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 0ac2cbe7564486d409c2a526a15d5c7a,
+      objectReference: {fileID: 11400000, guid: 8923483f2ee10884aa44fe1dde75e28d,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: fd87f828ddfa19a42a55b41be79e13a3,
+      objectReference: {fileID: 11400000, guid: dafa8e349d657d644b813527cee1f28c,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: 79c72596160c1ff43a5694e96cc72e7e,
+      objectReference: {fileID: 11400000, guid: e11b8c0ad22e2f145b6ca3503dc1f396,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: c7bc2f6bba12fe04ba6baf2486a0aad9,
+      objectReference: {fileID: 11400000, guid: 6eab25a4d058f2549bd488ea98aba0c4,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[6]
       value: 
-      objectReference: {fileID: 11400000, guid: 17a0f8afa9ebc084a94e39a0014e61cd,
+      objectReference: {fileID: 11400000, guid: c5e817217fe9a0749afae0389b6d13d2,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[7]
       value: 
-      objectReference: {fileID: 11400000, guid: 9ff494c9bdb7fe1468cce2e1bda8e5b6,
+      objectReference: {fileID: 11400000, guid: 17a0f8afa9ebc084a94e39a0014e61cd,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[8]
       value: 
-      objectReference: {fileID: 11400000, guid: 0f0152a0d5fd714468d2698de587fc2e,
+      objectReference: {fileID: 11400000, guid: 9ff494c9bdb7fe1468cce2e1bda8e5b6,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[9]
       value: 
-      objectReference: {fileID: 11400000, guid: 1fdac420f77ed6b4c996b7a7cb949afe,
+      objectReference: {fileID: 11400000, guid: 0f0152a0d5fd714468d2698de587fc2e,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[10]
       value: 
-      objectReference: {fileID: 11400000, guid: 521b283f112801b4685d42271d4b121b,
+      objectReference: {fileID: 11400000, guid: 1fdac420f77ed6b4c996b7a7cb949afe,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[11]
       value: 
-      objectReference: {fileID: 11400000, guid: 371c04ef63db19443a7b0efd23257201,
+      objectReference: {fileID: 11400000, guid: 0fe9dbeaa0a4dd749af55a1d0c8d4146,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[12]
       value: 
-      objectReference: {fileID: 11400000, guid: 2f5e902ec90317545b37d5c7c41c9e8f,
+      objectReference: {fileID: 11400000, guid: 0909f4213555f1641a08952a862073a9,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[13]
       value: 
-      objectReference: {fileID: 11400000, guid: 0ac2cbe7564486d409c2a526a15d5c7a,
+      objectReference: {fileID: 11400000, guid: 3f9c1300a5206f54e9d20d00e8d572e8,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[14]
       value: 
-      objectReference: {fileID: 11400000, guid: 21d149981e1921c4ea7c020631dbbc97,
+      objectReference: {fileID: 11400000, guid: 44995c71316cce74a8966f440252752d,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[15]
       value: 
-      objectReference: {fileID: 11400000, guid: 2c21dac0d378cc945b3d6a27715fbe45,
+      objectReference: {fileID: 11400000, guid: fd87f828ddfa19a42a55b41be79e13a3,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[16]
       value: 
-      objectReference: {fileID: 11400000, guid: 79c72596160c1ff43a5694e96cc72e7e,
+      objectReference: {fileID: 11400000, guid: f58a3f5914d42784bac1b7ffd0705e97,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[17]
       value: 
-      objectReference: {fileID: 11400000, guid: 1fdac420f77ed6b4c996b7a7cb949afe,
+      objectReference: {fileID: 11400000, guid: c2f32903fa9ee6f4ebc5c88429376c64,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[18]
       value: 
-      objectReference: {fileID: 11400000, guid: b56744e94a253224b85ef05360c26804,
+      objectReference: {fileID: 11400000, guid: e5994636fc8db7e42b7a89c1d4067d7f,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[19]
       value: 
-      objectReference: {fileID: 11400000, guid: 521b283f112801b4685d42271d4b121b,
+      objectReference: {fileID: 11400000, guid: b1d43e8a5e9e15f4ea1806712fa23277,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
       propertyPath: preSceneList.Array.data[20]
       value: 
-      objectReference: {fileID: 11400000, guid: 0fe9dbeaa0a4dd749af55a1d0c8d4146,
+      objectReference: {fileID: 11400000, guid: 79c72596160c1ff43a5694e96cc72e7e,
         type: 2}
     - target: {fileID: 8496596951305361527, guid: 3c4194e53bfeeb34da4b91bf98e3c697,
         type: 3}
@@ -24371,6 +24385,99 @@ MonoBehaviour:
     renderer: {fileID: 363814355}
     lightmapIndex: 2
     lightmapOffsetScale: {x: 1, y: 1, z: 0, w: 0}
+--- !u!1 &1151458723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1151458724}
+  - component: {fileID: 1151458727}
+  - component: {fileID: 1151458726}
+  - component: {fileID: 1151458725}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1151458724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151458723}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.37, y: 1.08, z: 0.08}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1151458725
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151458723}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1151458726
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151458723}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1151458727
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151458723}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &1157099408
 MeshCollider:
   m_ObjectHideFlags: 0

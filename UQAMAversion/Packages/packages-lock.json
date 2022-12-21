@@ -130,8 +130,18 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.unity.xr.arcore": {
+      "version": "2.1.19",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.xr.arsubsystems": "2.1.19",
+        "com.unity.xr.management": "4.0.1"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.xr.arsubsystems": {
-      "version": "2.1.18",
+      "version": "2.1.19",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -201,7 +211,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.picoxr": {
-      "version": "file:C:/Users/coordo/Desktop/PicoSDK",
+      "version": "file:C:/Users/coordo/Desktop/Automne22/Sexo/PICO Unity Integration SDK v212",
       "depth": 0,
       "source": "local",
       "dependencies": {
