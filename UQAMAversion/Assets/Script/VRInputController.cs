@@ -28,13 +28,13 @@ public class VRInputController : MonoBehaviour
     private void InitPlayerController(bool state)
     {
         ToggleHands(state);
-        TogglePlayerGravity(state);
+        // TogglePlayerGravity(state);
         TogglePlayerMouvement(state);
     }
 
     public void TogglePlayerGravity(bool state)
     {
-        playerController.GetComponent<PlayerGravity>().GravityEnabled = state;
+        // playerController.GetComponent<PlayerGravity>().GravityEnabled = state;
     }
         
     public void TogglePlayerMouvement(bool state)
