@@ -20,7 +20,7 @@ public class SceneChangeController : MonoBehaviour
     private static SceneChangeController _instance;
     public static SceneChangeController Instance { get { return _instance; } }
     private int currentSceneIndex = 0;
-
+    
     public Transform ikTarget = null;
     [Header("Scenes")]
     [SerializeField] List<SceneSO> sceneList = new List<SceneSO>(5);
@@ -46,6 +46,8 @@ public class SceneChangeController : MonoBehaviour
 
     [Header("Persistent Information")] 
     private Genre _prefGenre = Genre.None;
+
+    private Coroutine sceneTimer = null;
 
     public GameObject PlayerCamera => playerCamera;
 
@@ -91,11 +93,21 @@ public class SceneChangeController : MonoBehaviour
         {
             if (InputBridge.Instance.AButtonDown || Input.GetKey(KeyCode.RightArrow))
             {
+                // if (sceneTimer != null)
+                // {
+                //     sceneTimer = null;
+                //     StopCoroutine(sceneTimer);
+                // }
                 LoadNextScene();
                 SceneSelectionComplete = true;
             }
             else if (InputBridge.Instance.XButtonDown || Input.GetKey(KeyCode.LeftArrow))
             {
+                // if (sceneTimer != null)
+                // {
+                //     sceneTimer = null;
+                //     StopCoroutine(sceneTimer);
+                // }
                 LoadPreviousScene();
                 SceneSelectionComplete = true;
             }
@@ -350,20 +362,41 @@ public class SceneChangeController : MonoBehaviour
 
     private void ApplySceneTimer()
     {
+        Debug.Log($"{this}: COROUTINE IS {sceneTimer != null}");
+        // Stops Previous Scene Timer
+        if (sceneTimer != null)
+        {
+            StopCoroutine(sceneTimer);
+            sceneTimer = null;
+            Debug.Log($"{this}: At ApplySceneTimer => Stopped SceneTimer ");
+        }
+        
         if (sceneList[currentSceneIndex].UseSceneTimer)
         {
             Debug.Log($"{this}: Applied scene timer with {sceneList[currentSceneIndex].SceneTimer}");
             canGoToNextScene = false;
-            StartCoroutine(StartSceneTimer(sceneList[currentSceneIndex].SceneTimer, sceneList[currentSceneIndex].UseSceneTimerAsTrigger));
+            
+            if (sceneTimer != null)
+            {
+                StopCoroutine(sceneTimer);
+                sceneTimer = null;
+                Debug.Log($"{this}: Before StartSceneTimer => Stopped SceneTimer ");
+            }
+            sceneTimer = StartCoroutine(StartSceneTimer(sceneList[currentSceneIndex].SceneTimer, sceneList[currentSceneIndex].UseSceneTimerAsTrigger, sceneList[currentSceneIndex].SceneName));
         }
     }
 
-    private IEnumerator StartSceneTimer(float time, bool isTrigger)
+    private IEnumerator StartSceneTimer(float time, bool isTrigger, string sceneName)
     {
-        Debug.Log($"{this}: Started scene timer with {time} and {isTrigger}");
+        // DEBUGGING INGORE ME
+        string sceneTimerName = sceneName;
+        
+        Debug.Log($"{this}: Started scene timer with {time} and {isTrigger} for scene {sceneTimerName}");
         canGoToNextScene = false;
+        
         yield return new WaitForSeconds(time);
-        Debug.Log("Scene timer was completed!");
+
+        Debug.Log($"Scene timer was completed! || {sceneTimerName}");
         canGoToNextScene = true;
         Instance.SceneTimerDone?.Invoke();
         // Debug.Log("THIS IS THE END OF THE SCENE");

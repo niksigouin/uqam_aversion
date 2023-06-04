@@ -115,6 +115,11 @@ namespace BNG {
             }
         }
 
+        float Remap(float source, float sourceFrom, float sourceTo, float targetFrom, float targetTo)
+        {
+            return targetFrom + (source-sourceFrom)*(targetTo-targetFrom)/(sourceTo-sourceFrom);
+        }
+        
         /// <summary>
         /// Fade from solid color to transparent
         /// </summary>
@@ -162,7 +167,8 @@ namespace BNG {
                     alpha += Time.deltaTime * FadeInSpeed;
                     if (alpha > alphaTo) {
                         alpha = alphaTo;
-                        if(alpha == alphaTo) SceneChangeController.Instance.FadeInComplete?.Invoke();
+                        if (alpha == alphaTo) SceneChangeController.Instance.FadeInComplete?.Invoke();
+                        AudioListener.volume = Remap(alphaTo, 0.0f, 1.0f, 1.0f, 0.0f);
                     }
                 }
                 else {
@@ -170,6 +176,7 @@ namespace BNG {
                     if (alpha < alphaTo) {
                         alpha = alphaTo;
                         if(alpha == alphaTo) SceneChangeController.Instance.FadeOutComplete?.Invoke();
+                        AudioListener.volume = Remap(alphaTo,1.0f, 0.0f,0.0f, 1.0f);
                     }
                 }
 
