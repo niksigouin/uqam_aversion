@@ -27,6 +27,8 @@ public class SceneChangeTrigger : MonoBehaviour
         {
             // SceneChangeController.Instance.EndOfScene?.Invoke();
         }
+
+        // SceneChangeController.Instance.canGoToNextScene = true;
     }
     
     private void OnTriggerEnter(Collider other)

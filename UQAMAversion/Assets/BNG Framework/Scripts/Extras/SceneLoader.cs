@@ -44,6 +44,18 @@ namespace BNG
                 // Debug.Log("Starting fade coroutine");
                 StartCoroutine(FadeAndWait());
             }
+            // ADDED THIS ELSE CONDITION TO BY PASS THE FADE IN
+            else
+            {
+                _loadSceneName = SceneName;
+                StartCoroutine(WaitForIndexAndLoad());
+            }
+        }
+
+        public void SkipToIndex(string sceneName)
+        {
+            _loadSceneName = sceneName;
+            StartCoroutine(WaitForIndexAndLoad());
         }
 
         public IEnumerator FadeThenLoadScene()
@@ -82,6 +94,13 @@ namespace BNG
             }
                 
             if (ScreenFadeTime > 0) yield return new WaitForSeconds(ScreenFadeTime);
+            yield return new WaitUntil(() => SceneChangeController.Instance.SceneSelectionComplete);
+            SceneManager.LoadScene(_loadSceneName, loadSceneMode);
+            SceneChangeController.Instance.SceneSelectionComplete = false;
+        }
+
+        public IEnumerator WaitForIndexAndLoad()
+        {
             yield return new WaitUntil(() => SceneChangeController.Instance.SceneSelectionComplete);
             SceneManager.LoadScene(_loadSceneName, loadSceneMode);
             SceneChangeController.Instance.SceneSelectionComplete = false;

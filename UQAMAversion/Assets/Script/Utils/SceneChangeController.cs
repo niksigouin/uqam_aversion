@@ -39,6 +39,7 @@ public class SceneChangeController : MonoBehaviour
 
     [Header("Scene information")] 
     [SerializeField] private bool sceneIsFinished = false;
+    public bool canGoToNextScene = false;
 
     [SerializeField] private List<SceneSO> RandomSceneList;
     [SerializeField] private GameObject GoToIndicator;
@@ -80,20 +81,46 @@ public class SceneChangeController : MonoBehaviour
 
     private void OnDestroy()
     {
+        Debug.Log($"{this}: Getting Destroyed!");
         Unsubscribe();
     }
 
     private void Update()
     {
-        if(SceneSelectionComplete) return;
-        if (InputBridge.Instance.AButtonDown || Input.GetKey(KeyCode.RightArrow))
+        if (!SceneSelectionComplete)
         {
-            LoadNextScene();
-            SceneSelectionComplete = true;
-        } else if (InputBridge.Instance.XButtonDown || Input.GetKey(KeyCode.LeftArrow))
-        {
-            LoadPreviousScene();
-            SceneSelectionComplete = true;
+            if (InputBridge.Instance.AButtonDown || Input.GetKey(KeyCode.RightArrow))
+            {
+                LoadNextScene();
+                SceneSelectionComplete = true;
+            }
+            else if (InputBridge.Instance.XButtonDown || Input.GetKey(KeyCode.LeftArrow))
+            {
+                LoadPreviousScene();
+                SceneSelectionComplete = true;
+            }
+            
+            // TODO: DON'T DO THIS, DO SOMETHING ELSE THAT'S LESS COMPUTATIONALLY DEMANDING
+            foreach (char c in Input.inputString)
+            {
+                if (char.IsDigit(c))
+                {
+                    int index;
+                    if (int.TryParse(c.ToString(), out index))
+                    {
+                        Debug.Log($"Number was pressed: {index} with type {index.GetType()}");
+                        if (index >= 0 || index <= sceneList.Count)
+                        {
+                            LoadSceneAtIndex(index);
+                            SceneSelectionComplete = true;
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"{this}: They sceneIndex selected is not valid, please chose an index within the range of the loaded scene selection");
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -239,6 +266,15 @@ public class SceneChangeController : MonoBehaviour
         SceneManager.UnloadSceneAsync(currentSceneIndex);
     }
 
+    [ContextMenu("Load Scene At Index")]
+    private void LoadSceneAtIndex(int sceneIndex)
+    {
+        currentSceneIndex = sceneIndex;
+        sceneLoader.SkipToIndex(sceneList[currentSceneIndex].SceneName);
+        sceneIsFinished = false;
+        canGoToNextScene = false;
+    }
+    
     [ContextMenu("Load Next Scene")]
     private void LoadNextScene()
     {
@@ -255,6 +291,7 @@ public class SceneChangeController : MonoBehaviour
         }
         // currentSceneIndex++;
         sceneIsFinished = false;
+        canGoToNextScene = false;
     }
 
     [ContextMenu("Load Previous Scene")]
@@ -266,6 +303,7 @@ public class SceneChangeController : MonoBehaviour
             sceneLoader.FadeOutAndWaitForSceneIndex(sceneList[currentSceneIndex].SceneName);
         }
         sceneIsFinished = false;
+        canGoToNextScene = false;
         // sceneLoader.LoadScene(sceneList[currentSceneIndex].SceneName);
     }
     
@@ -315,6 +353,7 @@ public class SceneChangeController : MonoBehaviour
         if (sceneList[currentSceneIndex].UseSceneTimer)
         {
             Debug.Log($"{this}: Applied scene timer with {sceneList[currentSceneIndex].SceneTimer}");
+            canGoToNextScene = false;
             StartCoroutine(StartSceneTimer(sceneList[currentSceneIndex].SceneTimer, sceneList[currentSceneIndex].UseSceneTimerAsTrigger));
         }
     }
@@ -322,8 +361,10 @@ public class SceneChangeController : MonoBehaviour
     private IEnumerator StartSceneTimer(float time, bool isTrigger)
     {
         Debug.Log($"{this}: Started scene timer with {time} and {isTrigger}");
+        canGoToNextScene = false;
         yield return new WaitForSeconds(time);
         Debug.Log("Scene timer was completed!");
+        canGoToNextScene = true;
         Instance.SceneTimerDone?.Invoke();
         // Debug.Log("THIS IS THE END OF THE SCENE");
         
@@ -343,6 +384,7 @@ public class SceneChangeController : MonoBehaviour
         else
         {
             sceneIsFinished = true;
+            canGoToNextScene = true;
         }
     }
 
