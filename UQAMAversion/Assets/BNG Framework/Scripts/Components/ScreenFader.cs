@@ -112,6 +112,7 @@ namespace BNG {
             if (canvasGroup != null) {
                 fadeRoutine = doFade(canvasGroup.alpha, 1);
                 StartCoroutine(fadeRoutine);
+                SceneChangeController.Instance.TriggerAudioFade(3.0f, 0.0f);
             }
         }
 
@@ -132,6 +133,10 @@ namespace BNG {
 
             fadeRoutine = doFade(canvasGroup.alpha, 0);
             Debug.Log("DoFadeOut Starting Fade Routine");
+            
+            // AUDIO
+            SceneChangeController.Instance.TriggerAudioFade(3.0f, 1.0f);
+            
             // TODO: IF MALE NOT FIX UNCOMMENT
             // FindObjectOfType<SceneSpawnLocation>().DoTeleport();
             StartCoroutine(fadeRoutine);
@@ -160,24 +165,35 @@ namespace BNG {
             float alpha = alphaFrom;
 
             updateImageAlpha(alpha);
+            
 
             while (alpha != alphaTo) {
 
                 if (alphaFrom < alphaTo) {
+                    //FADE OUT
                     alpha += Time.deltaTime * FadeInSpeed;
+                    // AudioListener.volume -= Time.deltaTime * FadeInSpeed;
+                    // Debug.Log(AudioListener.volume);
                     if (alpha > alphaTo) {
                         alpha = alphaTo;
                         if (alpha == alphaTo) SceneChangeController.Instance.FadeInComplete?.Invoke();
-                        AudioListener.volume = Remap(alphaTo, 0.0f, 1.0f, 1.0f, 0.0f);
                     }
+                    // AudioListener.volume = Remap(alphaTo, 0.0f, 1.0f, 1.0f, 0.0f);
+                    // Debug.Log(Remap(alphaTo, 0.0f, 1.0f, 1.0f, 0.0f));
+                    // Debug.Log(alpha);
                 }
                 else {
+                    //FADE IN
                     alpha -= Time.deltaTime * FadeOutSpeed;
+                    // AudioListener.volume += Time.deltaTime * FadeInSpeed;
+                    // Debug.Log(AudioListener.volume);
                     if (alpha < alphaTo) {
                         alpha = alphaTo;
                         if(alpha == alphaTo) SceneChangeController.Instance.FadeOutComplete?.Invoke();
-                        AudioListener.volume = Remap(alphaTo,1.0f, 0.0f,0.0f, 1.0f);
                     }
+                    // AudioListener.volume = Remap(alphaTo,1.0f, 0.0f,0.0f, 1.0f);
+                    // Debug.Log(AudioListener.volume);
+                    // Debug.Log(alpha);
                 }
 
                 updateImageAlpha(alpha);
@@ -189,6 +205,7 @@ namespace BNG {
 
             // Ensure alpha is always applied
             updateImageAlpha(alphaTo);
+            
         }
 
         public void SetFadeColor(Color input)

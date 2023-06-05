@@ -48,6 +48,7 @@ public class SceneChangeController : MonoBehaviour
     private Genre _prefGenre = Genre.None;
 
     private Coroutine sceneTimer = null;
+    private Coroutine audioFade = null;
 
     public GameObject PlayerCamera => playerCamera;
 
@@ -318,8 +319,29 @@ public class SceneChangeController : MonoBehaviour
         canGoToNextScene = false;
         // sceneLoader.LoadScene(sceneList[currentSceneIndex].SceneName);
     }
+
+    public void TriggerAudioFade(float duration, float targetVolume)
+    {
+        if (audioFade != null)
+        {
+            StopCoroutine(audioFade);
+        }
+        
+        audioFade = StartCoroutine(StartAudioFade(duration, targetVolume));
+    }
     
-    
+    public static IEnumerator StartAudioFade(float duration, float targetVolume)
+    {
+        float currentTime = 0;
+        float start = AudioListener.volume;
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            AudioListener.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
+            yield return null;
+        }
+        yield break;
+    }
 
     public void SetPlayerTransform(Transform targetTransform)
     {
